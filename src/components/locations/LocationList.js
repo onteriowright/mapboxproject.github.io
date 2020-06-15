@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { LocationContext } from "./LocationProvider";
+import Settings from "../../Settings.js";
 
 export default () => {
   const { locations, getLocations } = useContext(LocationContext);
@@ -30,7 +31,7 @@ export default () => {
       <h1>Barber Shops</h1>
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken="pk.eyJ1Ijoib250ZXJpb3dyaWdodCIsImEiOiJja2Jnb2g1MHExN2c1Mndtcno5aXNmemlhIn0.YPsoCbXTBw0EuhbprxQhZg"
+        mapboxApiAccessToken={Settings.REACT_APP_MapboxAccessToken}
         mapStyle="mapbox://styles/onteriowright/ckbgugpcg36h51io1trdbtt1n"
         onViewportChange={newViewport => setViewport(newViewport)}
       >
