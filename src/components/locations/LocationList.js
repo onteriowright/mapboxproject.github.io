@@ -63,14 +63,9 @@ export default () => {
               }}
             >
               <div className="popup-info">
-                <a
-                  href={`https://www.google.com/maps/place/${selectedBarbershop.name}/@${selectedBarbershop.coordinates.latitude},${selectedBarbershop.coordinates.longitude}`}
-                  target="_blank"
-                >
-                  <p>{selectedBarbershop.name}</p>
-                  <img src={selectedBarbershop.image_url} alt="picture of shop" />
-                  <p>{selectedBarbershop.display_phone}</p>
-                </a>
+                <p>{selectedBarbershop.name}</p>
+                <img src={selectedBarbershop.image_url} alt="picture of shop" />
+                <p>{selectedBarbershop.display_phone}</p>
               </div>
             </Popup>
           ) : null}
