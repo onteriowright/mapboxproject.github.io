@@ -5,9 +5,19 @@ export const LocationContext = React.createContext();
 export const LocationProvider = props => {
   const [locations, setLocations] = useState([]);
 
-  // Fetch Locations from yelp
   const getLocations = () => {
-    return fetch("http://localhost:5000/businesses")
+    return fetch(
+      `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?client_id=${process.env.REACT_APP_YELP_CLIENT_ID}&term=barbershop&location=Nashville,TN&limit=50`,
+      {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          "x-requestd-with": "xmlhttprequest",
+          "Access-Control-Allow-Origin": "http://localhost:3000/",
+          Authorization: `Bearer ${process.env.REACT_APP_YELP_CLIENT_SECRET}`
+        }
+      }
+    )
       .then(res => res.json())
       .then(setLocations);
   };
